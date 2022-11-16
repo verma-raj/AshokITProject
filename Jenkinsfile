@@ -1,7 +1,10 @@
+properties([parameters([choice(choices: ['master\nfeature1\nfeature2'], name: 'Branches')])])
+
 node("master") 
 { 
   stage ("git-clone") 
-    { checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/AshokITProject.git']]]) } 
+    echo " Pulling changes from branch $(params.branch)
+    git url: "https://github.com/verma-raj/AshokITProject.git", branch: "$(params.branch)"
      
    stage("Maven Build") 
    { echo "inside Jenkins"
