@@ -1,6 +1,6 @@
 properties([parameters([choice(choices: ['master\nfeature1\nfeature2'], name: 'Branches')])])
 
-node("master") 
+node
 { 
   stage ("git-clone") 
     echo " Pulling changes from branch $(params.branch)
