@@ -14,7 +14,6 @@
       <version>3.8.1</version>
     </dependency>
   </dependencies>
-<project>
   <build>
     <plugins>
 		<plugin>
@@ -48,4 +47,3 @@
     <finalName>01-maven-web-app</finalName>
   </build>
  </project>
-
