@@ -14,6 +14,14 @@
       <version>3.8.1</version>
     </dependency>
   </dependencies>
+   
+  <distributionManagement>
+    <snapshotRepository>
+      <id>devopspractice_snapshot</id>
+      <url>http://34.226.136.157:8081/nexus/content/repositories/devopspractice_snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+  
   <build>
     <plugins>
 		<plugin>
@@ -37,13 +45,7 @@
       </plugins>
 </pluginManagement>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>devopspractice_snapshot</id>
-      <url>http://34.226.136.157:8081/nexus/content/repositories/devopspractice_snapshot/</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-    <finalName>01-maven-web-app</finalName>
+<finalName>01-maven-web-app</finalName>
   </build>
  </project>
+
