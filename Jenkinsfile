@@ -23,7 +23,13 @@ node("small")
 	
   stage ("Push Nexus"){
   echo " Pushing to nexus Now "
-  nexusArtifactUploader artifacts: [[artifactId: '01-maven-web-app', classifier: '', file: 'target/01-maven-web-app.war', type: 'war']], credentialsId: 'nexus_cred', groupId: 'maven', nexusUrl: '34.226.136.157:8081', nexusVersion: 'nexus2', protocol: 'http', repository: 'devopspractice_snapshot', version: '1.0'
+  sh """mvn -U org.apache.maven.plugins:maven-deploy-plugin:2.8.1:deploy-file -DgroupId=in.ashokit \
+  -DartifactId=01-maven-web-app \
+  -Dversion=1.0-SNAPSHOT \
+  -Dpackaging=war \
+  -Dfile=target/01-maven-web-app.war \
+  -DrepositoryId=devopspractice_snapshot \
+  -Durl=http://34.226.136.157:8081/nexus/content/repositories/devopspractice_snapshot/"""
   
   }
    
