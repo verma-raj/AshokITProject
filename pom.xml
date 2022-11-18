@@ -21,8 +21,28 @@
     <artifactId>maven-war-plugin</artifactId>
     <version>3.3.1</version>
 </plugin>
+<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+</plugin>
 </plugins>
-
+<pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.0.5</version>
+        </plugin>
+      </plugins>
+</pluginManagement>
+<project>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>devopspractice_snapshot</id>
+      <url>http://34.226.136.157:8081/nexus/content/repositories/devopspractice_snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
     <finalName>01-maven-web-app</finalName>
   </build>
 </project>
