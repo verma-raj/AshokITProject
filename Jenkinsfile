@@ -1,5 +1,5 @@
-properties([parameters([choice(choices: ['master\nfeature'], name: 'GitBranches')])])
-echo "This is the choice $(params.branch)"
+properties([parameters([choice(choices: ['master\nfeature'], name: 'GitBranch')])])
+echo "This is the choice $(params.GitBranch)"
 node("small") 
 { 
   stage ("git-clone") 
