@@ -1,8 +1,6 @@
 
-properties([parameters([choice(choices: ['master\nfeature'], name: 'branch')])])
-node{
-		
-	stage ("Test Param")
-	echo " Pulling changes from branch ${env.branch}"
-	
+properties([parameters([string(defaultValue: 'Hello', description: 'How should I greet the world?', name: 'Greeting')])])
+
+node(“master”){
+    echo "${params.Greeting} World!"
 }
