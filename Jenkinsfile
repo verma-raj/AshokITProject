@@ -1,6 +1,6 @@
 
 properties([parameters([string(defaultValue: 'Hello', description: 'How should I greet the world?', name: 'Greeting')])])
 
-node(“master”){
+node{
     echo "${params.Greeting} World!"
 }
