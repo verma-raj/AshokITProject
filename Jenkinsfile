@@ -2,11 +2,11 @@ properties([parameters([gitParameter(branch: '', branchFilter: '.*', defaultValu
 script {
           if (env.branch == 'origin/feature1') {
               echo 'I only execute on the feature1 branch'
-		  def branch = env.branch
+		  def thisbranch = env.branch
 	      node("small")
 		  { stage ("git-clone")
 		   	echo " Launching small Instance and cloning GIT "
-		   	checkout([$class: 'GitSCM', branches: [[name: *\/$branch]], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/AshokITProject.git']]])
+		   	checkout([$class: 'GitSCM', branches: [[name: *\/$thisbranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/AshokITProject.git']]])
 		     
 		  }
 		     stage ("Compiling the code"){ 
