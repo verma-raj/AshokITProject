@@ -15,13 +15,16 @@ script {
     				sh 'mvn clean compile'
 		     }
 	      
-          } else {
+          } 
+	if (env.branch == 'origin/feature2') {
+	def thisbranch = env.branch
+	echo "I only execute on the $thisbranch branch"
+		node("medium")
+		{ stage ("git-clone")
+	 	echo " Launching small Instance and cloning GIT from $thisbranch "
+		}
+	}
+	else {
                         echo 'I execute elsewhere'
-	  }
+	}
 }
-// node{
-		
-// 	stage ("Test Param")
-// 	echo " Pulling changes from branch ${params.branch}"
-	
-// }
