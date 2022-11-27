@@ -4,6 +4,7 @@ script {
               echo 'I only execute on the feature1 branch'
           } else {
                         echo 'I execute elsewhere'
+	  }
 }
 // node{
 		
