@@ -1,6 +1,6 @@
 
-properties([parameters([string(defaultValue: 'Hello', description: 'How should I greet the world?', name: 'Greeting')])])
+properties([parameters([choice(choices: ['master\nfeature'], name: 'branch')])])
 
 node{
-    echo "${params.Greeting} World!"
+    echo "${params.branch}"
 }
