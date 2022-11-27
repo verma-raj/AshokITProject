@@ -6,7 +6,7 @@ script {
 	      node("small")
 		  { stage ("git-clone")
 		   	echo " Launching small Instance and cloning GIT from $thisbranch "
-		   	checkout([$class: 'GitSCM', branches: [[name: */$thisbranch]], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/AshokITProject.git']]])
+		   	checkout([$class: 'GitSCM', branches: [[name: '''*/$thisbranch''']], extensions: [], userRemoteConfigs: [[credentialsId: 'rajiv-github', url: 'https://github.com/verma-raj/AshokITProject.git']]])
 		     
 		  }
 		     stage ("Compiling the code"){ 
