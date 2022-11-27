@@ -3,7 +3,7 @@ script {
           if (env.branch == 'origin/feature1') {
               echo 'I only execute on the feature1 branch'
 	      stage ("Test Param")
-	      echo " Pulling changes from branch ${params.branch}"  
+	      echo " Pulling changes from branch env.branch"  
           } else {
                         echo 'I execute elsewhere'
 	  }
