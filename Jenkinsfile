@@ -19,7 +19,7 @@ script {
 	      
           	} 
 	  }
-	if (env.branch == 'origin/feature2') {
+	else if (env.branch == 'origin/feature2') {
 	def thisbranch = env.branch
 	echo "I only execute on the $thisbranch branch"
 	node("medium")
