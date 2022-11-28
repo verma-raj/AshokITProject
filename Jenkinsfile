@@ -1,6 +1,6 @@
 properties([parameters([gitParameter(branch: '', branchFilter: '.*', defaultValue: '*/dev1', description: 'Select branch from Git', name: 'branch', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition')])])
 script {
-          if (env.branch == 'origin/master') {
+          if (env.branch == 'origin/feature1') {
               def thisbranch = env.branch
 		  echo "I only execute on the $thisbranch branch"
 	      node("small")
