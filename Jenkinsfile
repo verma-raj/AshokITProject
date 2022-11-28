@@ -31,7 +31,7 @@ script {
 		   stage ("Compiling the code") { 
     			echo "**** Compiling the code*****"
     			sh 'mvn -v'
-    			sh 'mvn clean compile'
+    			sh 'mvn clean package'
 		    }
 		}
 	}
