@@ -22,12 +22,20 @@ script {
 	if (env.branch == 'origin/feature2') {
 	def thisbranch = env.branch
 	echo "I only execute on the $thisbranch branch"
-		node("medium")
-		{ stage ("git-clone")
-	 	echo " Launching small Instance and cloning GIT from $thisbranch "
+	node("medium")
+		{ stage ("git-clone") {
+	 		echo " Launching small Instance and cloning GIT from $thisbranch "
+		 	echo " Launching small Instance and cloning GIT from $thisbranch  and ${params.branch} "
+		   	checkout([$class: 'GitSCM', branches: [[name: params.branch]], extensions: [], userRemoteConfigs: [[credentialsId: 'git-user', url: 'https://github.com/verma-raj/AshokITProject.git']]])
+		  }
+		   stage ("Compiling the code") { 
+    			echo "**** Compiling the code*****"
+    			sh 'mvn -v'
+    			sh 'mvn clean compile'
+		    }
 		}
 	}
 	else {
-                        echo 'I execute elsewhere'
+                        echo 'I can execute elsewhere but its not configured'
 	}
 }
