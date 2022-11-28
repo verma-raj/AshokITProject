@@ -3,10 +3,11 @@ script {
           if (env.branch == 'origin/feature1') {
               def thisbranch = env.branch
 		  echo "I only execute on the $thisbranch branch"
+		  echo " This is what i Get - ${params.branch}"
 	      node("small")
 		  { stage ("git-clone")
-		   	echo " Launching small Instance and cloning GIT from $thisbranch "
-		   	checkout([$class: 'GitSCM', branches: [[name: '''*/$thisbranch''']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-user', url: 'https://github.com/verma-raj/AshokITProject.git']]])
+		   	echo " Launching small Instance and cloning GIT from $thisbranch  and ${params.branch} "
+		   	checkout([$class: 'GitSCM', branches: [[name: '''${params.branch}''']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-user', url: 'https://github.com/verma-raj/AshokITProject.git']]])
 		     
 		  }
 		     stage ("Compiling the code"){ 
