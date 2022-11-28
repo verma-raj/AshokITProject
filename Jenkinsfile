@@ -7,5 +7,6 @@ pipeline {
           if (env.branch == 'origin/feature1') {
 		  echo 'I only execute on the feature1 branch'
 		  def thisbranch = env.branch
-		  }
+	}
+	}
 }
