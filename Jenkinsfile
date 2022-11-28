@@ -17,7 +17,8 @@ script {
     				sh 'mvn clean compile'
 		     }
 	      
-          } 
+          	} 
+	  }
 	if (env.branch == 'origin/feature2') {
 	def thisbranch = env.branch
 	echo "I only execute on the $thisbranch branch"
