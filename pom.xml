@@ -7,52 +7,58 @@
   <version>1.0-SNAPSHOT</version>
   <name>01-maven-web-app</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
     </dependency>
-	<dependency>
-	  <groupId>org.apache.maven.plugins</groupId>
-	  <artifactId>maven-site-plugin</artifactId>
+    <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
       <version>3.0</version>
 	</dependency>
   </dependencies>
-   
+
   <distributionManagement>
     <snapshotRepository>
-      <id>devopspractice_snapshot</id>
-      <url>http://34.226.136.157:8081/nexus/content/repositories/devopspractice_snapshot/</url>
+      <id>devops-snapshot</id>
+      <url>http://3.91.17.196:9090/devopspractice/repository/devops-snapshot/</url>
     </snapshotRepository>
   </distributionManagement>
-  
+
   <build>
     <plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-war-plugin</artifactId>
-			<version>3.3.1</version>
-		</plugin>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-deploy-plugin</artifactId>
-			<configuration>
-				<skip>true</skip>
-			</configuration>
-		</plugin>
-	</plugins>
-	
-<pluginManagement>
-      <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.1</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.2</version>
+        </plugin>	
+        <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+	    <version>3.3</version>
         </plugin>
-      </plugins>
-</pluginManagement>
+    
+	<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-deploy-plugin</artifactId>
+       </plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-eclipse-plugin</artifactId>
+    <version>2.9</version>
+    <configuration>
+	    <downloadSources>true</downloadSources>
+            <downloadJavadocs>true</downloadJavadocs>
+            <wtpversion>2.0</wtpversion>
+	    <wtpContextName>maven-web-application</wtpContextName>
+    </configuration>
+</plugin>
+</plugins>
 
-<finalName>01-maven-web-app</finalName>
+	<finalName>01-maven-web-app</finalName>
   </build>
  </project>
+
