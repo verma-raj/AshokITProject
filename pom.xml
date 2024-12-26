@@ -4,7 +4,7 @@
   <groupId>in.ashokit</groupId>
   <artifactId>01-maven-web-app</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>01-maven-web-app</name>
   <url>http://maven.apache.org</url>
   
@@ -22,10 +22,17 @@
   </dependencies>
 
   <distributionManagement>
-    <snapshotRepository>
+   <repository>
+      <id>devops-release</id>
+      <url>http://3.91.17.196:9090/devopspractice/repository/devops-release/</url>
+    </repository>
+     <snapshotRepository>
       <id>devops-snapshot</id>
       <url>http://3.91.17.196:9090/devopspractice/repository/devops-snapshot/</url>
     </snapshotRepository>
+
+    
+
   </distributionManagement>
 
   <build>
